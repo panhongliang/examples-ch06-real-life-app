@@ -41,6 +41,7 @@ public class UsersNavigationSpout extends BaseRichSpout {
 	@Override
 	public void nextTuple() {
 		String content = jedis.rpop("navigation");
+		//"{\"user\":\"c872761b-9d1f-49fe-a384-cd75af350ed2\",\"product\":\"2\",\"type\":\"PRODUCT\"}"
 		if(content==null || "nil".equals(content)) {
 			try { Thread.sleep(300); } catch (InterruptedException e) {}
 		} else {

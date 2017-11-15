@@ -37,6 +37,7 @@ public class GetCategoryBolt extends BaseBasicBolt {
 
 				// Call the items API to get item information
 				Product itm = reader.readItem(product);
+				//"{\"title\":\"Media player with USB 2.0 input\",\"category\":\"Players\",\"price\":70,\"id\":2}"
 				if(itm ==null)
 					return ;
 

@@ -8,9 +8,9 @@ import backtype.storm.topology.TopologyBuilder;
 import backtype.storm.tuple.Fields;
 
 public class TopologyStarter {
-	public final static String REDIS_HOST = "localhost";
+	public final static String REDIS_HOST = "master";
 	public final static int REDIS_PORT = 6379;
-	public final static String WEBSERVER = "http://localhost:3000/news";
+	public final static String WEBSERVER = "http://master:3000/news";
 	public final static long DOWNLOAD_TIME = 100;
 	public static boolean testing = false;
 
@@ -18,7 +18,7 @@ public class TopologyStarter {
         Logger.getRootLogger().removeAllAppenders();
 
 		TopologyBuilder builder = new TopologyBuilder();
-        
+        //"{\"user\":\"c872761b-9d1f-49fe-a384-cd75af350ed2\",\"product\":\"2\",\"type\":\"PRODUCT\"}"
         builder.setSpout("read-feed", new UsersNavigationSpout(), 3);
         
         builder.setBolt("get-categ", new GetCategoryBolt(), 3)
